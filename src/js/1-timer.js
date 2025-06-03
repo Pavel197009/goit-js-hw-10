@@ -10,7 +10,7 @@ let selectedDate = null;
 let currentDate = null;
 
 const calendar = document.querySelector('#datetime-picker');
-const startBtn = document.querySelector('[data-start-timer]');
+const startBtn = document.querySelector('[data-start]');
 startBtn.disabled = true;
 
 flatpickr(calendar, {
