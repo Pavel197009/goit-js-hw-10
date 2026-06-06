@@ -11,7 +11,9 @@ let currentDate = null;
 
 const calendar = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('[data-start]');
+
 startBtn.disabled = true;
+
 
 flatpickr(calendar, {
   enableTime: true,
@@ -27,13 +29,13 @@ flatpickr(calendar, {
         const setTimer = () => {
             selectedDate = selectedDates[0].getTime();
         timer.start();
+        console.log(selectedDates, selectedDate);
         };
-
-      startBtn.addEventListener('click', setTimer);
     }
   },
 });
 
+//startBtn.addEventListener('click', setTimer);
 const timer = {
   rootSelector: document.querySelector('.timer'),
   start() {
