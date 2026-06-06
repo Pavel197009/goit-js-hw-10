@@ -38,13 +38,13 @@ startBtn.addEventListener("click", ()=>{
 const timer = {
   rootSelector: document.querySelector('.timer'),
   start() {
+    startBtn.disabled = true;
+    calendar.disabled = true;
     intervalId = setInterval(() => {
-      startBtn.disabled = true;
-      calendar.disabled = true;
       currentDate = Date.now();
       const delta = selectedDate - currentDate;
 
-      if (delta <= 0) {
+      if (delta <= TIMER_DELAY) {
         this.stop();
         return;
       }
@@ -63,6 +63,10 @@ const timer = {
   stop() {
     clearInterval(intervalId);
     this.intervalId = null;
+    this.rootSelector.querySelector('[data-days]').textContent = '00';
+    this.rootSelector.querySelector('[data-hours]').textContent = '00';
+    this.rootSelector.querySelector('[data-minutes]').textContent = '00';
+    this.rootSelector.querySelector('[data-seconds]').textContent = '00';
     startBtn.disabled = true;
     calendar.disabled = false;
   },
