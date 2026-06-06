@@ -26,10 +26,8 @@ flatpickr(calendar, {
         iziToast.error({ position: 'topCenter', message: "Please choose a date in the future" });
         startBtn.disabled = true;
     } else {
-        console.log(selectedDates, 1);
         startBtn.disabled = false;
         selectedDate = selectedDates[0].getTime();
-        console.log(selectedDates, selectedDate, startBtn.disabled);
     }
   },
 });
