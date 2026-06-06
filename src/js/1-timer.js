@@ -28,11 +28,8 @@ flatpickr(calendar, {
     } else {
         console.log(selectedDates, 1);
         startBtn.disabled = false;
-        const setTimer = () => {
-            selectedDate = selectedDates[0].getTime();
-            timer.start();
-            console.log(selectedDates, selectedDate, startBtn.disabled);
-        };
+        selectedDate = selectedDates[0].getTime();
+        console.log(selectedDates, selectedDate, startBtn.disabled);
     }
   },
 });
