@@ -21,6 +21,7 @@ function createPromise(delay, resolveResult) {
 
 function onPromiseCreate(e) {
   e.preventDefault();
+  console.lpg(e);
   console.log(Number(e.currentTarget.elements.delay.value), e.currentTarget.elements.state.value === "fulfilled");
   createPromise(Number(e.currentTarget.elements.delay.value), e.currentTarget.elements.state.value === "fulfilled")
     .then(value => iziToast.success({position: 'topRight', message: `✅ Fulfilled promise in ${Number(e.currentTarget.elements.delay.value)}ms`}))
