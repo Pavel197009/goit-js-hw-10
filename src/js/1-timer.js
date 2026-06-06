@@ -22,7 +22,7 @@ flatpickr(calendar, {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0].getTime() < Date.now()) {
+    if (selectedDates[0].getTime() <= Date.now()) {
         iziToast.error({ position: 'topCenter', message: "Please choose a date in the future" });
         startBtn.disabled = true;
     } else {
