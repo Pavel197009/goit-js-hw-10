@@ -21,10 +21,8 @@ function createPromise(delay, resolveResult) {
 
 function onPromiseCreate(e) {
   e.preventDefault();
-  let inputDelay = Number(e.currentTarget.elements.delay.value);
-  let resolveResult = (e.currentTarget.elements.state.value === "fulfilled");
-  createPromise(inputDelay, resolveResult)
-    .then(value => iziToast.success({position: 'topRight', message: `✅ Fulfilled promise in ${inputDelay}ms`}))
-    .catch(error => iziToast.error({position: 'topRight', message: `❌ Rejected promise in ${inputDelay}ms`}));
+  createPromise(Number(e.currentTarget.elements.delay.value), (e.currentTarget.elements.state.value === "fulfilled"))
+    .then(value => iziToast.success({position: 'topRight', message: `✅ Fulfilled promise in ${Number(e.currentTarget.elements.delay.value)}ms`}))
+    .catch(error => iziToast.error({position: 'topRight', message: `❌ Rejected promise in ${Number(e.currentTarget.elements.delay.value)}ms`}));
   e.currentTarget.reset(); 
 }
