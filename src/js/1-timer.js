@@ -36,7 +36,7 @@ flatpickr(calendar, {
   },
 });
 
-//startBtn.addEventListener('click', setTimer);
+startBtn.addEventListener('click', setTimer);
 const timer = {
   rootSelector: document.querySelector('.timer'),
   start() {
