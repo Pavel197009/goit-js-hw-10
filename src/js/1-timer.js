@@ -13,6 +13,7 @@ const calendar = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('[data-start]');
 
 startBtn.disabled = true;
+console.log(startBtn.disabled);
 
 
 flatpickr(calendar, {
@@ -21,7 +22,6 @@ flatpickr(calendar, {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates);
     if (selectedDates[0].getTime() < Date.now()) {
         iziToast.error({ position: 'topCenter', message: "Please choose a date in the future" });
         startBtn.disabled = true;
@@ -30,13 +30,12 @@ flatpickr(calendar, {
         const setTimer = () => {
             selectedDate = selectedDates[0].getTime();
         timer.start();
-        console.log(selectedDates, selectedDate);
+        console.log(selectedDates, selectedDate, startBtn.disabled);
         };
     }
   },
 });
 
-startBtn.addEventListener('click', setTimer);
 const timer = {
   rootSelector: document.querySelector('.timer'),
   start() {
